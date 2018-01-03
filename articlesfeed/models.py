@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.shortcuts import reverse
 
 class Section(models.Model):
     class Meta:
@@ -25,3 +26,6 @@ class Article(models.Model):
 
     def __str__(self):
         return self.article_title
+    def get_absolute_url(self):
+        return reverse('articlesfeed:article', kwargs={'section': self.article_section.section_url,
+                                                    'article_id': self.id})

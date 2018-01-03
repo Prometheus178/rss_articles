@@ -18,7 +18,7 @@ from django.urls import path, include
 
 urlpatterns = [
 
-    path('rss/', include('rss_feed.urls')),
     path('admin/', admin.site.urls),
     path('articlesfeed/', include('articlesfeed.urls', namespace="articlesfeed")),
+    path('feed/', include('rss_feed.urls')),
 ]
